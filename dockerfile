@@ -1,17 +1,10 @@
-# Usa una imagen base de Node.js
-FROM node:14
+# Usa una imagen base de Nginx
+FROM nginx:latest
 
-# Establece el directorio de trabajo dentro del contenedor
-WORKDIR /root/LaboratorioFinal/
+# Copia los archivos estáticos de la aplicación al directorio de trabajo de Nginx
+COPY ./static-html-directory /usr/share/nginx/html
 
-# Copia los archivos del proyecto al directorio de trabajo
-COPY . .
+# Expone el puerto en el que Nginx estará escuchando
+EXPOSE 80
 
-# Instala las dependencias del proyecto
-RUN npm install
-
-# Expone el puerto en el que la aplicación estará escuchando
-EXPOSE 3000
-
-# Comando para iniciar la aplicación
-CMD ["npm", "start"]
+# No es necesario ningún comando CMD, ya que Nginx se ejecuta automáticamente en el contenedor de manera predeterminada

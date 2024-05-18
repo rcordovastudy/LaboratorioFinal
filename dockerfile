@@ -1,5 +1,5 @@
 # Usa una imagen base de Nginx
-FROM nginx:lastest
+FROM nginx:latest
 
 # Copia los archivos estáticos de la aplicación al directorio de trabajo de Nginx
 COPY /root/LaboratorioFinal/prueba-nginx /usr/share/nginx/html

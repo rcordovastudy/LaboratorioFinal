@@ -1,8 +1,8 @@
 # Usa una imagen base de Nginx
-FROM nginx:latest
+FROM nginx:lastest
 
 # Copia los archivos estáticos de la aplicación al directorio de trabajo de Nginx
-COPY ./static-html-directory /usr/share/nginx/html
+COPY /root/LaboratorioFinal/prueba-nginx /usr/share/nginx/html
 
 # Expone el puerto en el que Nginx estará escuchando
 EXPOSE 80

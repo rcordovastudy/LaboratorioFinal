@@ -1,14 +1,10 @@
-# Usa una imagen base de alpine
-FROM alpine:latest
+# Usa una imagen base de Nginx
+FROM nginx:latest
 
-# Establece el directorio de trabajo dentro del contenedor
-WORKDIR /app
+# Copia los archivos estáticos de la aplicación al directorio de trabajo de Nginx
+COPY ./static-html-directory /usr/share/nginx/html
 
-# Copia tu aplicación al directorio de trabajo en el contenedor
-COPY . .
+# Expone el puerto en el que Nginx estará escuchando
+EXPOSE 80
 
-# Instala cualquier dependencia si es necesario
-# RUN npm install
-
-# Ejecuta el comando deseado para tu aplicación
-CMD ["echo", "Hello, world!"]
+# No es necesario ningún comando CMD, ya que Nginx se ejecuta automáticamente en el contenedor de manera predeterminada

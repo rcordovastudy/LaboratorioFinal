@@ -8,7 +8,8 @@ pipeline {
         DOCKER_HUB_CREDENTIALS_ID = '882f6182-c695-45dc-a72a-372064618a44'
     }
 
-    stage('Deploy with Docker Compose') {
+    stages {
+        stage('Deploy with Docker Compose') {
             steps {
                 script {
                     // Desplegar la aplicación usando Docker Compose
@@ -17,4 +18,5 @@ pipeline {
                 }
             }
         }
+    }
 }
